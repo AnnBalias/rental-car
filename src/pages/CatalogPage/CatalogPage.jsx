@@ -1,3 +1,10 @@
+import { Header } from '../../components/Header/Header';
+
 export const CatalogPage = () => {
-  return <>CatalogPage</>;
+  return (
+    <>
+      <Header />
+      CatalogPage
+    </>
+  );
 };

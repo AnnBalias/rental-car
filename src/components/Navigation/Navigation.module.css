@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.navLink {
+  padding: 24px 0;
+  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navLink:hover {
+  color: var(--button-hover);
+}
+
+.navActive {
+  color: var(--button-hover);
+}

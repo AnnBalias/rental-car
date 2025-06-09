@@ -1,12 +1,11 @@
+import { Logo } from '../../assets/icons.jsx';
 import { Navigation } from '../Navigation/Navigation.jsx';
 import css from './Header.module.css';
 
 export const Header = () => {
   return (
     <div className={css.header}>
-      <p className={css.logo}>
-        Rental<span className={css.logoSpan}>Car</span>
-      </p>
+      <Logo />
       <Navigation />
     </div>
   );
