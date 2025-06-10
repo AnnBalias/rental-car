@@ -1,6 +1,6 @@
 import Select from 'react-select';
 import css from './FormSearch.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { api } from '../../constants';
 import {
@@ -9,11 +9,13 @@ import {
   setMileageTo,
   setPrice,
 } from '../../redux/slice';
+import { selectSearchParams } from '../../redux/selectors';
+import { fetchCars } from '../../redux/operations';
 
 export const FormSearch = () => {
   const [brands, setbrands] = useState([]);
   const dispatch = useDispatch();
-  // const brands = useSelector(selectBrands);
+  const { brand, price, mileage } = useSelector(selectSearchParams);
 
   useEffect(() => {
     async function fetchBrands() {
@@ -36,13 +38,14 @@ export const FormSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(fetchCars({ brand, price, mileage }));
   };
 
   return (
     <>
       <p className={css.p}>FormSearch</p>
       <form className={css.form} onSubmit={handleSubmit}>
-        <label htmlFor="brand">
+        <label>
           Car brand
           <Select
             options={brandOptions}
@@ -51,8 +54,7 @@ export const FormSearch = () => {
             isSearchable
           />
         </label>
-
-        <label htmlFor="price">
+        <label>
           Price/ 1 hour
           <Select
             options={priceOptions}
@@ -61,22 +63,20 @@ export const FormSearch = () => {
             isSearchable
           />
         </label>
-
         <fieldset className={css.mileageGroup}>
           <legend>Car mileage / km</legend>
           <input
-            type="text"
+            type="number"
             name="mileageFrom"
             placeholder="From"
-            value={brands.langth || ''}
+            value={mileage.from}
             onChange={(event) => dispatch(setMileageFrom(event.target.value))}
-            setMileageTo
           />
           <input
-            type="text"
+            type="number"
             name="mileageTo"
             placeholder="To"
-            value={brands.langth || ''}
+            value={mileage.to}
             onChange={(event) => dispatch(setMileageTo(event.target.value))}
           />
         </fieldset>
