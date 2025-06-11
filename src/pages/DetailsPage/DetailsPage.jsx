@@ -4,7 +4,7 @@ import { api } from '../../constants';
 import { useEffect, useState } from 'react';
 import css from './DetailsPage.module.css';
 import { FormBooking } from '../../components/FormBooking/FormBooking';
-import { CarInfo } from '../../components/CarInfo/CarInfo';
+import { CarDetails } from '../../components/CarDetails/CarDetails';
 
 export const DetailsPage = () => {
   const { id } = useParams();
@@ -40,7 +40,7 @@ export const DetailsPage = () => {
           />
           <FormBooking />
         </div>
-        <CarInfo />
+        <CarDetails car={car} />
       </div>
     </>
   );

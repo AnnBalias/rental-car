@@ -1,0 +1,43 @@
+.detailsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 68px;
+  text-align: start;
+}
+
+.title {
+  font-weight: 600;
+  line-height: 1.33333;
+  margin-bottom: 8px;
+}
+
+.titleSpan {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--gray);
+  margin-left: 16px;
+}
+
+.subtitleBox {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.locationBox {
+  display: flex;
+  gap: 2px;
+}
+
+.locationSvg {
+  width: 16px;
+  height: 16px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--button);
+  margin-bottom: 32px;
+}

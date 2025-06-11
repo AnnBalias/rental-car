@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom';
 import css from './CarItem.module.css';
+import {
+  addressFormat,
+  carTypeFormat,
+  mileageFormat,
+} from '../../../utils/formatData';
 
 export const CarItem = (car) => {
-  const addressStr = car.address;
-  const addressArr = addressStr.split(', ');
-
-  const carTypeUpp = car.type;
-  const carTypeLow =
-    carTypeUpp.charAt(0).toUpperCase() + carTypeUpp.slice(1).toLowerCase();
-
-  const mileageNum = car.mileage;
-  const mileageFormat = mileageNum.toLocaleString('uk-UA');
+  const addressArr = addressFormat(car.address);
+  const carType = carTypeFormat(car.type);
+  const mileage = mileageFormat(car.mileage);
 
   return (
     <div className={css.carItem}>
@@ -32,8 +31,8 @@ export const CarItem = (car) => {
           <p className={css.subtitle}>{`${addressArr[1]}`}</p>
           <p className={css.subtitle}>{`${addressArr[2]}`}</p>
           <p className={css.subtitle}>{`${car.rentalCompany}`}</p>
-          <p className={css.subtitle}>{`${carTypeLow}`}</p>
-          <p className={css.subtitle}>{`${mileageFormat} km`}</p>
+          <p className={css.subtitle}>{`${carType}`}</p>
+          <p className={css.subtitle}>{`${mileage} km`}</p>
         </div>
       </div>
       <Link to={`/catalog/${car.id}`} className={css.readMore}>

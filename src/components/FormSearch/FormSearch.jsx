@@ -11,6 +11,7 @@ import {
 } from '../../redux/slice';
 import { selectSearchParams } from '../../redux/selectors';
 import { fetchCars } from '../../redux/operations';
+import { selectStyle } from '../../assets/selectStyle';
 
 export const FormSearch = () => {
   const [brands, setbrands] = useState([]);
@@ -50,7 +51,7 @@ export const FormSearch = () => {
             options={brandOptions}
             onChange={(selected) => dispatch(setBrand(selected.value))}
             placeholder="Select brand"
-            isSearchable
+            styles={selectStyle}
           />
         </label>
         <label>
@@ -59,7 +60,7 @@ export const FormSearch = () => {
             options={priceOptions}
             onChange={(selected) => dispatch(setPrice(selected.value))}
             placeholder="Select price"
-            isSearchable
+            styles={selectStyle}
           />
         </label>
         <fieldset className={css.mileageGroup}>

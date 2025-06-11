@@ -18,7 +18,7 @@ export const CarList = () => {
 
   useEffect(() => {
     dispatch(fetchCars({ page, brand, price, mileage }));
-  }, [dispatch, page, brand, price, mileage]);
+  }, []);
 
   const handleMore = () => {
     dispatch(setPage(page + 1));
