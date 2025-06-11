@@ -29,7 +29,7 @@
   gap: 2px;
 }
 
-.locationSvg {
+.detailsSvg {
   width: 16px;
   height: 16px;
 }
@@ -40,4 +40,30 @@
   line-height: 1.33333;
   color: var(--button);
   margin-bottom: 32px;
+}
+
+.listsInfo {
+  height: 772px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.listTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
