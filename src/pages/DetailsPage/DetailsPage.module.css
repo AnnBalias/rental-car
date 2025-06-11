@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  gap: 72px;
+  padding: 84px 120px 104px;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 640px;
+}
+
+.carImg {
+  border-radius: 19px;
+  height: 512px;
+  object-fit: cover;
+  object-position: center;
+}

@@ -12,7 +12,7 @@ export const Navigation = () => {
       <NavLink to="/" className={buildLinkClass}>
         Home
       </NavLink>
-      <NavLink to="/catalog" className={buildLinkClass}>
+      <NavLink to="/catalog" end className={buildLinkClass}>
         Catalog
       </NavLink>
     </nav>

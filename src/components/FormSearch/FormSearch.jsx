@@ -38,12 +38,11 @@ export const FormSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchCars({ brand, price, mileage }));
+    dispatch(fetchCars({ page: 1, brand, price, mileage }));
   };
 
   return (
     <>
-      <p className={css.p}>FormSearch</p>
       <form className={css.form} onSubmit={handleSubmit}>
         <label>
           Car brand

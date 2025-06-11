@@ -20,8 +20,6 @@ export const CarList = () => {
     dispatch(fetchCars({ page, brand, price, mileage }));
   }, [dispatch, page, brand, price, mileage]);
 
-  console.log(cars);
-
   const handleMore = () => {
     dispatch(setPage(page + 1));
   };
@@ -37,7 +35,11 @@ export const CarList = () => {
           ))}
         </ul>
       )}
-      {totalPages > page && <button onClick={handleMore}>Load More</button>}
+      {totalPages > page && (
+        <button onClick={handleMore} className={css.loadMore}>
+          Load More
+        </button>
+      )}
     </>
   );
 };

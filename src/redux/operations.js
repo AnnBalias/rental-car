@@ -3,13 +3,19 @@ import { api } from '../constants';
 
 export const fetchCars = createAsyncThunk(
   'cars/fetch',
-  async ({ brand, price, mileage }, thunkAPI) => {
+  async ({ page, brand, price, mileage, limit = 12 }, thunkAPI) => {
     const { from, to } = mileage;
-    try {
-      const response = await api.get(
-        `/cars?brand=${brand}&rentalPrice=${price}&minMileage=${from}&maxMileage=${to}`
-      );
+    const params = new URLSearchParams({
+      limit,
+      page,
+      ...(brand && { brand }),
+      ...(price && { rentalPrice: price }),
+      ...(from && { minMileage: from }),
+      ...(to && { maxMileage: to }),
+    });
 
+    try {
+      const response = await api.get(`/cars?${params.toString()}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
