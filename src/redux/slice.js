@@ -4,7 +4,6 @@ import { fetchCars } from './operations.js';
 const initialState = {
   cars: [],
   pagination: {
-    limit: 12,
     page: 1,
     totalPages: 0,
     totalCars: 0,
@@ -26,6 +25,9 @@ const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
+    setPage(state, action) {
+      state.pagination.page = action.payload;
+    },
     setBrand(state, action) {
       state.searchParams.brand = action.payload;
     },
@@ -47,7 +49,13 @@ const globalSlice = createSlice({
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.cars = action.payload;
+        if (state.pagination.page === 1) {
+          state.cars = action.payload.cars;
+        } else {
+          state.cars = [...state.cars, ...action.payload.cars];
+        }
+        state.pagination.totalPages = action.payload.totalPages;
+        state.pagination.totalCars = action.payload.totalCars;
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.isLoading = false;
@@ -56,6 +64,6 @@ const globalSlice = createSlice({
   },
 });
 
-export const { setBrand, setPrice, setMileageFrom, setMileageTo } =
+export const { setPage, setBrand, setPrice, setMileageFrom, setMileageTo } =
   globalSlice.actions;
 export const globalReducer = globalSlice.reducer;
