@@ -5,16 +5,35 @@ import {
   carTypeFormat,
   mileageFormat,
 } from '../../../utils/formatData';
+import heartDefaultSvg from '../../../assets/icons/heart-default.svg';
+import heartActiveSvg from '../../../assets/icons/heart-active.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsFavorite } from '../../../redux/selectors';
+import { toggleFavorite } from '../../../redux/slice';
 
 export const CarItem = (car) => {
+  const dispatch = useDispatch();
+  const isFavorite = useSelector(selectIsFavorite);
   const addressArr = addressFormat(car.address);
   const carType = carTypeFormat(car.type);
   const mileage = mileageFormat(car.mileage);
   const navigate = useNavigate();
 
+  const FavoriteСheck = isFavorite.includes(car.id);
+
+  const handLike = (id) => {
+    dispatch(toggleFavorite(id));
+  };
+
   return (
     <div className={css.carItem}>
-      {/* <button className={css.heartBtn}></button> */}
+      <button onClick={() => handLike(car.id)} className={css.heartBtn}>
+        {FavoriteСheck ? (
+          <img src={heartActiveSvg} alt="select" className={css.heartSvg} />
+        ) : (
+          <img src={heartDefaultSvg} alt="select" className={css.heartSvg} />
+        )}
+      </button>
       <img
         src={car.img}
         alt={`${car.brand} ${car.model}, ${car.year}`}

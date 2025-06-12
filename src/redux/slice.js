@@ -40,6 +40,14 @@ const globalSlice = createSlice({
     setMileageTo(state, action) {
       state.searchParams.mileage.to = action.payload;
     },
+    toggleFavorite(state, action) {
+      const id = action.payload;
+      if (state.isFavorite.includes(id)) {
+        state.isFavorite = state.isFavorite.filter((favId) => favId !== id);
+      } else {
+        state.isFavorite.push(id);
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -69,6 +77,12 @@ const globalSlice = createSlice({
   },
 });
 
-export const { setPage, setBrand, setPrice, setMileageFrom, setMileageTo } =
-  globalSlice.actions;
+export const {
+  setPage,
+  setBrand,
+  setPrice,
+  setMileageFrom,
+  setMileageTo,
+  toggleFavorite,
+} = globalSlice.actions;
 export const globalReducer = globalSlice.reducer;

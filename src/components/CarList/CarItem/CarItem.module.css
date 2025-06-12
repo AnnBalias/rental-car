@@ -15,7 +15,8 @@
 }
 
 .heartSvg {
-  fill: var(--white);
+  width: 16px;
+  height: 16px;
 }
 
 .carImg {
