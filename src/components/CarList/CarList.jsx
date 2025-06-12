@@ -6,7 +6,7 @@ import {
   selectPagination,
 } from '../../redux/selectors';
 import { CarItem } from './CarItem/CarItem';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchCars } from '../../redux/operations';
 import { setPage } from '../../redux/slice';
 import { Loader } from '../Loader/Loader';
