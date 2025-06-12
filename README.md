@@ -25,16 +25,11 @@ Anna Balias
 ## 🛠️ Tech Stack
 
 ![HTML](https://img.shields.io/badge/HTML-3470ff?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-3470ff?style=for-the-badge&logo=css3&logoColor=white)
+![CSS](https://img.shields.io/badge/css-3470ff?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-3470ff?style=for-the-badge&logo=javascript&logoColor=white)
 ![React](https://img.shields.io/badge/React-3470ff?style=for-the-badge&logo=react&logoColor=white)
 ![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-3470ff?style=for-the-badge&logo=redux&logoColor=white)
-![Redux Persist](https://img.shields.io/badge/Redux%20Persist-3470ff?style=for-the-badge&logo=redux&logoColor=white)
 ![React Router](https://img.shields.io/badge/React%20Router-3470ff?style=for-the-badge&logo=reactrouter&logoColor=white)
-![React Select](https://img.shields.io/badge/React%20Select-3470ff?style=for-the-badge&logo=react&logoColor=white)
-
-<!-- add something -->
-
 ![Axios](https://img.shields.io/badge/Axios-3470ff?style=for-the-badge&logo=axios&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-3470ff?style=for-the-badge&logo=vite&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-3470ff?style=for-the-badge&logo=npm&logoColor=white)
