@@ -31,7 +31,9 @@ export const CarDetails = ({ car }) => {
       <div className={css.mainInfo}>
         <h2 className={css.title}>
           {`${car.brand} ${car.model}, ${car.year}`}
-          <span className={css.titleSpan}>{`id: ${car.id}`}</span>
+          <span
+            className={css.titleSpan}
+          >{`id: ${car.img.split('/').pop().split('-')[0]}`}</span>
         </h2>
         <div className={css.subtitleBox}>
           <div className={css.locationBox}>
