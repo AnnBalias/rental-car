@@ -5,8 +5,10 @@ import { useEffect, useState } from 'react';
 import css from './DetailsPage.module.css';
 import { FormBooking } from '../../components/FormBooking/FormBooking';
 import { CarDetails } from '../../components/CarDetails/CarDetails';
+import { Loader } from '../../components/Loader/Loader';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
-export const DetailsPage = () => {
+const DetailsPage = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const [error, setError] = useState(null);
@@ -17,16 +19,15 @@ export const DetailsPage = () => {
         const response = await api.get(`/cars/${id}`);
         setCar(response.data);
       } catch (err) {
-        setError('Не вдалося завантажити авто');
-        console.error(err);
+        setError(err);
       }
     }
 
     fetchCar();
   }, [id]);
 
-  if (error) return <div>{error}</div>;
-  if (!car) return <div>Loading...</div>;
+  if (!car) return <Loader />;
+  if (error) return <NotFoundPage />;
 
   return (
     <>
@@ -45,3 +46,5 @@ export const DetailsPage = () => {
     </>
   );
 };
+
+export default DetailsPage;

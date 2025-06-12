@@ -6,6 +6,8 @@
 }
 
 .title {
+  display: flex;
+  align-items: baseline;
   font-weight: 600;
   line-height: 1.33333;
   margin-bottom: 8px;
@@ -16,6 +18,11 @@
   font-size: 16px;
   color: var(--gray);
   margin-left: 16px;
+  max-width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .subtitleBox {

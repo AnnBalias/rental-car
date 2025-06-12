@@ -2,23 +2,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './CarList.module.css';
 import {
   selectCars,
+  selectIsLoading,
   selectPagination,
-  selectSearchParams,
 } from '../../redux/selectors';
 import { CarItem } from './CarItem/CarItem';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchCars } from '../../redux/operations';
 import { setPage } from '../../redux/slice';
+import { Loader } from '../Loader/Loader';
+import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 export const CarList = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
   const { page, totalPages } = useSelector(selectPagination);
-  const { brand, price, mileage } = useSelector(selectSearchParams);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
-    dispatch(fetchCars({ page, brand, price, mileage }));
-  }, []);
+    dispatch(fetchCars({ page, brand: '', price: '', mileage: '' }));
+  }, [dispatch, page]);
 
   const handleMore = () => {
     dispatch(setPage(page + 1));
@@ -26,7 +28,9 @@ export const CarList = () => {
 
   return (
     <>
-      {Array.isArray(cars) && cars.length === 0 ? (
+      {isLoading ? (
+        <Loader />
+      ) : Array.isArray(cars) && cars.length === 0 ? (
         <p className={css.notFound}>No cars available</p>
       ) : (
         <ul className={css.carList}>

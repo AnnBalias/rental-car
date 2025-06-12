@@ -21,7 +21,8 @@
   margin-bottom: 40px;
 }
 
-.heroLink {
+.heroBtn {
+  color: var(--white);
   border-radius: 12px;
   padding: 12px 88px;
   background-color: var(--button);
@@ -29,6 +30,6 @@
   transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.heroLink:hover {
+.heroBtn:hover {
   background-color: var(--button-hover);
 }

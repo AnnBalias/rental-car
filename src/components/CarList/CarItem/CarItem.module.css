@@ -3,6 +3,19 @@
   height: 424px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.heartBtn {
+  position: absolute;
+  padding: 0;
+  background-color: transparent;
+  top: 16px;
+  right: 16px;
+}
+
+.heartSvg {
+  fill: var(--white);
 }
 
 .carImg {

@@ -1,16 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import css from './Hero.module.css';
 
 export const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={css.hero}>
       <h1 className={css.title}>Find your perfect rental car</h1>
       <h2 className={css.subtitle}>
         Reliable and budget-friendly rentals for any journey
       </h2>
-      <Link to="/catalog" className={css.heroLink}>
+      <button onClick={() => navigate('/catalog')} className={css.heroBtn}>
         View Catalog
-      </Link>
+      </button>
     </div>
   );
 };

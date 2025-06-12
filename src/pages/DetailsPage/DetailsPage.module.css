@@ -9,6 +9,7 @@
   flex-direction: column;
   gap: 40px;
   width: 640px;
+  flex-shrink: 0;
 }
 
 .carImg {

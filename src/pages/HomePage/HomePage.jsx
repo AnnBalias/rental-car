@@ -1,7 +1,7 @@
 import { Header } from '../../components/Header/Header.jsx';
 import { Hero } from '../../components/Hero/Hero.jsx';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <>
       <Header />
@@ -9,3 +9,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;

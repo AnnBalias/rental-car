@@ -3,11 +3,6 @@ import { fetchCars } from './operations.js';
 
 const initialState = {
   cars: [],
-  pagination: {
-    page: 1,
-    totalPages: 0,
-    totalCars: 0,
-  },
   searchParams: {
     brand: '',
     price: '',
@@ -17,6 +12,11 @@ const initialState = {
     },
   },
   isFavorite: [],
+  pagination: {
+    page: 1,
+    totalPages: 0,
+    totalCars: 0,
+  },
   isLoading: false,
   error: null,
 };
@@ -45,7 +45,12 @@ const globalSlice = createSlice({
     builder
       .addCase(fetchCars.pending, (state) => {
         state.isLoading = true;
-        state.error = null;
+        state.error = initialState.error;
+        if (state.pagination.page === 1) {
+          state.cars = initialState.cars;
+        }
+        state.pagination.totalPages = initialState.pagination.totalPages;
+        state.pagination.totalCars = initialState.pagination.totalCars;
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.isLoading = false;

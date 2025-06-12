@@ -2,8 +2,8 @@ import css from './Loader.module.css';
 
 export const Loader = () => {
   return (
-    <>
-      <p className={css.p}>Loader</p>
-    </>
+    <div className={css.wrapper}>
+      <div className={css.spinner} />
+    </div>
   );
 };

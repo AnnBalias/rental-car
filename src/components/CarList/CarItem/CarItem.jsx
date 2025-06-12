@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import css from './CarItem.module.css';
 import {
   addressFormat,
@@ -10,9 +10,11 @@ export const CarItem = (car) => {
   const addressArr = addressFormat(car.address);
   const carType = carTypeFormat(car.type);
   const mileage = mileageFormat(car.mileage);
+  const navigate = useNavigate();
 
   return (
     <div className={css.carItem}>
+      {/* <button className={css.heartBtn}></button> */}
       <img
         src={car.img}
         alt={`${car.brand} ${car.model}, ${car.year}`}
@@ -35,9 +37,12 @@ export const CarItem = (car) => {
           <p className={css.subtitle}>{`${mileage} km`}</p>
         </div>
       </div>
-      <Link to={`/catalog/${car.id}`} className={css.readMore}>
+      <button
+        onClick={() => navigate(`/catalog/${car.id}`)}
+        className={css.readMore}
+      >
         Read more
-      </Link>
+      </button>
     </div>
   );
 };

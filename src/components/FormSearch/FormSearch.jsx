@@ -7,9 +7,10 @@ import {
   setBrand,
   setMileageFrom,
   setMileageTo,
+  setPage,
   setPrice,
 } from '../../redux/slice';
-import { selectSearchParams } from '../../redux/selectors';
+import { selectPagination, selectSearchParams } from '../../redux/selectors';
 import { fetchCars } from '../../redux/operations';
 import { selectStyle } from '../../assets/selectStyle';
 
@@ -17,6 +18,7 @@ export const FormSearch = () => {
   const [brands, setbrands] = useState([]);
   const dispatch = useDispatch();
   const { brand, price, mileage } = useSelector(selectSearchParams);
+  const { page } = useSelector(selectPagination);
 
   useEffect(() => {
     async function fetchBrands() {
@@ -39,7 +41,8 @@ export const FormSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchCars({ page: 1, brand, price, mileage }));
+    dispatch(setPage(1));
+    dispatch(fetchCars({ page, brand, price, mileage }));
   };
 
   return (
@@ -49,6 +52,7 @@ export const FormSearch = () => {
           Car brand
           <Select
             options={brandOptions}
+            value={brandOptions.find((option) => option.value === brand)}
             onChange={(selected) => dispatch(setBrand(selected.value))}
             placeholder="Select brand"
             styles={selectStyle}
@@ -58,6 +62,7 @@ export const FormSearch = () => {
           Price/ 1 hour
           <Select
             options={priceOptions}
+            value={priceOptions.find((option) => option.value === price)}
             onChange={(selected) => dispatch(setPrice(selected.value))}
             placeholder="Select price"
             styles={selectStyle}

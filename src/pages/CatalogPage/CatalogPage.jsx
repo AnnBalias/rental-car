@@ -3,7 +3,7 @@ import { FormSearch } from '../../components/FormSearch/FormSearch';
 import { CarList } from '../../components/CarList/CarList';
 import css from './CatalogPage.module.css';
 
-export const CatalogPage = () => {
+const CatalogPage = () => {
   return (
     <>
       <Header />
@@ -14,3 +14,5 @@ export const CatalogPage = () => {
     </>
   );
 };
+
+export default CatalogPage;
