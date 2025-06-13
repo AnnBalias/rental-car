@@ -70,7 +70,7 @@ div.react-datepicker__day {
   text-align: center;
   color: var(--main);
   padding: 2px;
-  margin: 8px 4px;
+  margin: 5px 4px;
   border-radius: 32px;
   transition:
     background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
