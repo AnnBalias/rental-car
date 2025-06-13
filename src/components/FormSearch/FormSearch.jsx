@@ -29,10 +29,18 @@ export const FormSearch = () => {
     fetchBrands();
   }, []);
 
-  const brandOptions = brands.map((brand) => ({
+  const brandOptionsArr = brands.map((brand) => ({
     value: brand,
     label: brand,
   }));
+
+  const brandOptions = [
+    ...brandOptionsArr,
+    {
+      value: 'reset',
+      label: 'All brands',
+    },
+  ];
 
   const priceOptions = Array.from({ length: 6 }, (_, i) => {
     const value = 30 + i * 10;

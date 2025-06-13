@@ -8,7 +8,7 @@ export const fetchCars = createAsyncThunk(
     const params = new URLSearchParams({
       limit,
       page,
-      ...(brand && { brand }),
+      ...(brand && brand !== 'reset' && { brand }),
       ...(price && { rentalPrice: price }),
       ...(from && { minMileage: from }),
       ...(to && { maxMileage: to }),
