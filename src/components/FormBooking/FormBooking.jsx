@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { DateSelector } from '../DatePicker/DatePicker';
 import css from './FormBooking.module.css';
+import DatePicker from 'react-datepicker';
+import './datepicker.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const FormBooking = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    data: selectedDate,
     comment: '',
   });
 
@@ -14,7 +18,6 @@ export const FormBooking = () => {
   const validate = () => {
     const newErrors = {};
 
-    // Ім'я: 2-32 символи, тільки літери
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     } else if (
@@ -23,7 +26,6 @@ export const FormBooking = () => {
       newErrors.name = 'Name must be 2–32 letters, no numbers';
     }
 
-    // Email: стандартна валідація
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (
@@ -32,7 +34,10 @@ export const FormBooking = () => {
       newErrors.email = 'Invalid email format';
     }
 
-    // Коментар: необов’язкове, але максимум 160 символів
+    if (!selectedDate) {
+      newErrors.date = 'Date is required';
+    }
+
     if (formData.comment.length > 160) {
       newErrors.comment = 'Comment must be 160 characters or less';
     }
@@ -45,6 +50,11 @@ export const FormBooking = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setFormData((prev) => ({ ...prev, data: date }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -53,7 +63,13 @@ export const FormBooking = () => {
     } else {
       setErrors({});
       console.log('Form data:', formData);
-      // TODO: відправити дані
+
+      setFormData({
+        name: '',
+        email: '',
+        data: new Date(),
+        comment: '',
+      });
     }
   };
 
@@ -89,7 +105,21 @@ export const FormBooking = () => {
           {errors.email && <p className={css.error}>{errors.email}</p>}
         </div>
 
-        <DateSelector />
+        <div className={css.inputBox}>
+          <DatePicker
+            id="date"
+            selected={selectedDate}
+            onChange={handleDateChange}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Оберіть дату"
+            className="custom-datepicker"
+            minDate={new Date()}
+            isClearable
+            showPopperArrow={false}
+          />
+          {errors.date && <p className={css.error}>{errors.date}</p>}
+        </div>
+
         <div className={css.inputBox}>
           <textarea
             name="comment"
