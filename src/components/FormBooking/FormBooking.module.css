@@ -100,7 +100,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .formBox {
-    padding: 12px 10px;
+  .inputBox {
+    width: 100%;
   }
 }

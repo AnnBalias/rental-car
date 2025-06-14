@@ -6,6 +6,7 @@ export const selectStyle = {
     border: state.isFocused ? '0px solid transparent' : '0px solid transparent',
     boxShadow: state.isFocused ? 'none' : 'none',
     padding: '0 16px',
+    marginTop: '8px',
     minHeight: '44px',
     fontSize: '16px',
     fontWeight: 500,

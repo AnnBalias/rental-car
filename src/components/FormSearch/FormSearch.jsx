@@ -76,6 +76,7 @@ export const FormSearch = () => {
             onChange={(selected) => dispatch(setBrand(selected.value))}
             placeholder="Choose a brand"
             styles={selectStyle}
+            className={css.celect}
           />
         </label>
         <label className={css.formLabel}>
