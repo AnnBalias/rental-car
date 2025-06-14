@@ -1,8 +1,8 @@
-import Select from 'react-select';
-import css from './FormSearch.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { selectSearchParams, selectPagination } from '../../redux/selectors';
+import { useState, useEffect } from 'react';
 import { api } from '../../constants';
+import { fetchCars } from '../../redux/operations';
 import {
   setBrand,
   setMileageFrom,
@@ -10,16 +10,16 @@ import {
   setPage,
   setPrice,
 } from '../../redux/slice';
-import { selectPagination, selectSearchParams } from '../../redux/selectors';
-import { fetchCars } from '../../redux/operations';
+import Select from 'react-select';
 import { selectStyle } from '../../assets/selectStyle';
 import { ToPriceOptions } from './PriceOptions/PriceOptions';
+import css from './FormSearch.module.css';
 
 export const FormSearch = () => {
-  const [brands, setbrands] = useState([]);
   const dispatch = useDispatch();
   const { brand, price, mileage } = useSelector(selectSearchParams);
   const { page } = useSelector(selectPagination);
+  const [brands, setbrands] = useState([]);
 
   useEffect(() => {
     async function fetchBrands() {
@@ -34,7 +34,6 @@ export const FormSearch = () => {
     value: brand,
     label: brand,
   }));
-
   const brandOptions = [
     ...brandOptionsArr,
     {

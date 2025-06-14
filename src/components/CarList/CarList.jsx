@@ -1,23 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
-import css from './CarList.module.css';
 import {
   selectCars,
-  selectIsLoading,
-  selectPagination,
   selectSearchParams,
+  selectPagination,
+  selectIsLoading,
 } from '../../redux/selectors';
-import { CarItem } from './CarItem/CarItem';
 import { useEffect } from 'react';
 import { fetchCars } from '../../redux/operations';
 import { setPage } from '../../redux/slice';
 import { Loader } from '../Loader/Loader';
+import { CarItem } from './CarItem/CarItem';
+import css from './CarList.module.css';
 
 export const CarList = () => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
+  const { brand, price, mileage } = useSelector(selectSearchParams);
   const { page, totalPages } = useSelector(selectPagination);
   const isLoading = useSelector(selectIsLoading);
-  const { brand, price, mileage } = useSelector(selectSearchParams);
 
   useEffect(() => {
     dispatch(fetchCars({ page, brand, price, mileage }));

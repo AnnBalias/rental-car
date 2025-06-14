@@ -1,24 +1,23 @@
-import { Link, useNavigate } from 'react-router-dom';
-import css from './CarItem.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   addressFormat,
   carTypeFormat,
   mileageFormat,
 } from '../../../utils/formatData';
-import heartDefaultSvg from '../../../assets/icons/heart-default.svg';
-import heartActiveSvg from '../../../assets/icons/heart-active.svg';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectIsFavorite } from '../../../redux/selectors';
 import { toggleFavorite } from '../../../redux/slice';
+import heartDefaultSvg from '../../../assets/icons/heart-default.svg';
+import heartActiveSvg from '../../../assets/icons/heart-active.svg';
+import css from './CarItem.module.css';
 
 export const CarItem = (car) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isFavorite = useSelector(selectIsFavorite);
   const addressArr = addressFormat(car.address);
   const carType = carTypeFormat(car.type);
   const mileage = mileageFormat(car.mileage);
-  const navigate = useNavigate();
-
   const FavoriteСheck = isFavorite.includes(car.id);
 
   const handLike = (id) => {

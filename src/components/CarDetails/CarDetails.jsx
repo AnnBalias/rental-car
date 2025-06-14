@@ -1,3 +1,8 @@
+import {
+  addressFormat,
+  carTypeFormat,
+  mileageFormat,
+} from '../../utils/formatData';
 import locationSvg from '../../assets/icons/location-sign.svg';
 import checkCircleSvg from '../../assets/icons/check-circle.svg';
 import calendarSvg from '../../assets/icons/calendar.svg';
@@ -5,11 +10,6 @@ import carSvg from '../../assets/icons/car.svg';
 import fuelPumpSvg from '../../assets/icons/fuel-pump.svg';
 import gearSvg from '../../assets/icons/gear.svg';
 import css from './CarDetails.module.css';
-import {
-  addressFormat,
-  carTypeFormat,
-  mileageFormat,
-} from '../../utils/formatData';
 
 const listRender = (items) => {
   return items.map((item, index) => (
@@ -22,8 +22,8 @@ const listRender = (items) => {
 
 export const CarDetails = ({ car }) => {
   const addressArr = addressFormat(car.address);
-  const carType = carTypeFormat(car.type);
   const mileage = mileageFormat(car.mileage);
+  const carType = carTypeFormat(car.type);
   const AccesFunctionalArr = [...car.accessories, ...car.functionalities];
 
   return (

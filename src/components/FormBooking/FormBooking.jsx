@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import css from './FormBooking.module.css';
 import DatePicker from 'react-datepicker';
 import './datepicker.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import css from './FormBooking.module.css';
 
 export const FormBooking = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -12,7 +12,6 @@ export const FormBooking = () => {
     data: selectedDate,
     comment: '',
   });
-
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -45,7 +44,7 @@ export const FormBooking = () => {
     return newErrors;
   };
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -57,6 +56,7 @@ export const FormBooking = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -86,7 +86,7 @@ export const FormBooking = () => {
             type="text"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={handleInputChange}
             className={css.formInput}
             placeholder="Name*"
           />
@@ -98,7 +98,7 @@ export const FormBooking = () => {
             type="text"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleInputChange}
             className={css.formInput}
             placeholder="Email*"
           />
@@ -125,7 +125,7 @@ export const FormBooking = () => {
             name="comment"
             value={formData.comment}
             maxLength={160}
-            onChange={handleChange}
+            onChange={handleInputChange}
             className={css.formTextAr}
             placeholder="Comment"
           />

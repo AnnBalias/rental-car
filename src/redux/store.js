@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
+import persistReducer from 'redux-persist/es/persistReducer';
 import { globalReducer } from './slice';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   FLUSH,
@@ -9,7 +10,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {

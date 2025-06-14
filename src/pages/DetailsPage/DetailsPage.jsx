@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
-import { Header } from '../../components/Header/Header';
+import { useState, useEffect } from 'react';
 import { api } from '../../constants';
-import { useEffect, useState } from 'react';
-import css from './DetailsPage.module.css';
-import { FormBooking } from '../../components/FormBooking/FormBooking';
-import { CarDetails } from '../../components/CarDetails/CarDetails';
 import { Loader } from '../../components/Loader/Loader';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import { Header } from '../../components/Header/Header';
+import { FormBooking } from '../../components/FormBooking/FormBooking';
+import { CarDetails } from '../../components/CarDetails/CarDetails';
+import css from './DetailsPage.module.css';
 
 const DetailsPage = () => {
   const { id } = useParams();

@@ -1,12 +1,11 @@
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Loader } from './components/Loader/Loader';
-
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage'));
 const DetailsPage = lazy(() => import('./pages/DetailsPage/DetailsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+import './App.css';
 
 function App() {
   return (
