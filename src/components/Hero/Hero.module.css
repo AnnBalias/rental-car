@@ -1,9 +1,12 @@
 .hero {
+  height: calc(100vh - 68px);
   background-image: url('../../assets/backgrounds/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 436px 328px 60px;
+  display: flex;
+  align-items: end;
+  padding: 60px 328px;
   color: var(--white);
 }
 
@@ -32,4 +35,28 @@
 
 .heroBtn:hover {
   background-color: var(--button-hover);
+}
+
+@media screen and (max-width: 1280px) {
+  .hero {
+    height: calc(100vh - 60px);
+    padding: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: calc(100vh - 45px);
+    padding: 30px 12px;
+  }
+
+  .title {
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 35px;
+  }
 }

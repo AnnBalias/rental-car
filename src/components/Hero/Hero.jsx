@@ -6,13 +6,15 @@ export const Hero = () => {
 
   return (
     <div className={css.hero}>
-      <h1 className={css.title}>Find your perfect rental car</h1>
-      <h2 className={css.subtitle}>
-        Reliable and budget-friendly rentals for any journey
-      </h2>
-      <button onClick={() => navigate('/catalog')} className={css.heroBtn}>
-        View Catalog
-      </button>
+      <div className={css.textBox}>
+        <h1 className={css.title}>Find your perfect rental car</h1>
+        <h2 className={css.subtitle}>
+          Reliable and budget-friendly rentals for any journey
+        </h2>
+        <button onClick={() => navigate('/catalog')} className={css.heroBtn}>
+          View Catalog
+        </button>
+      </div>
     </div>
   );
 };
