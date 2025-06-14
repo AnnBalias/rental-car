@@ -69,3 +69,51 @@
   gap: 8px;
   align-items: center;
 }
+
+@media screen and (max-width: 1280px) {
+  .detailsBox {
+    gap: 34px;
+  }
+
+  .title {
+    flex-wrap: wrap;
+    gap: 2px 12px;
+  }
+
+  .titleSpan {
+    margin-left: 0;
+  }
+
+  .subtitleBox {
+    margin-bottom: 8px;
+  }
+
+  .price {
+    margin-bottom: 16px;
+  }
+
+  .listsInfo {
+    height: auto;
+    gap: 34px;
+  }
+
+  .listTitle {
+    margin-bottom: 8px;
+  }
+
+  .list {
+    gap: 8px;
+  }
+
+  .listItem {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    max-width: 320px;
+  }
+}
