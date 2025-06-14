@@ -6,3 +6,21 @@
   height: 68px;
   background-color: var(--badges);
 }
+
+@media screen and (max-width: 1280px) {
+  .header {
+    padding: 0 75px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 24px;
+    height: 45px;
+  }
+
+  .logo {
+    width: 80px;
+  }
+}

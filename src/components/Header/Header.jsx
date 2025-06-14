@@ -5,7 +5,7 @@ import css from './Header.module.css';
 export const Header = () => {
   return (
     <div className={css.header}>
-      <img src={Logo} alt="Logo" />
+      <img src={Logo} alt="Logo" className={css.logo} />
       <Navigation />
     </div>
   );

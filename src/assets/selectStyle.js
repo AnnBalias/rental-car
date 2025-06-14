@@ -43,8 +43,12 @@ export const selectStyle = {
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
-    color: '#101828',
-    transition: 'transform 0.2s ease',
+    color: ' #101828',
+    transition:
+      'transform 350ms cubic-bezier(0.4, 0, 0.2, 1), color 350ms cubic-bezier(0.4, 0, 0.2, 1)',
     transform: state.selectProps.menuIsOpen ? 'scaleY(-1)' : 'scaleY(1)',
+    '&:hover': {
+      color: '#0b44cd',
+    },
   }),
 };

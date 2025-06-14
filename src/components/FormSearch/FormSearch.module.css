@@ -75,3 +75,7 @@ input[type='number']::-webkit-inner-spin-button {
 .searchBtn:hover {
   background-color: var(--button-hover);
 }
+
+div.css-1wpplon-indicatorContainer:hover {
+  color: var(--button-hover);
+}

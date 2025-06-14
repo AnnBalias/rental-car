@@ -15,3 +15,13 @@
 .navActive {
   color: var(--button-hover);
 }
+
+@media screen and (max-width: 768px) {
+  .nav {
+    gap: 18px;
+  }
+
+  .navLink {
+    padding: 12px 0;
+  }
+}
