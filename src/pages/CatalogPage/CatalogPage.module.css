@@ -4,3 +4,15 @@
   align-items: center;
   padding: 84px 120px 124px;
 }
+
+@media screen and (max-width: 1280px) {
+  .wraper {
+    padding: 30px 75px 75px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wraper {
+    padding: 15px 24px 45px;
+  }
+}

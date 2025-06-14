@@ -76,6 +76,26 @@ input[type='number']::-webkit-inner-spin-button {
   background-color: var(--button-hover);
 }
 
-div.css-1wpplon-indicatorContainer:hover {
-  color: var(--button-hover);
+@media screen and (max-width: 1280px) {
+  .form {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    margin-bottom: 20px;
+  }
+
+  .inputBoxFrom,
+  .inputBoxTo {
+    margin-bottom: 8px;
+  }
+
+  .searchBtn {
+    width: 207px;
+  }
 }
