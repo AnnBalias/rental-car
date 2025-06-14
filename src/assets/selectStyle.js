@@ -45,8 +45,6 @@ export const selectStyle = {
     ...provided,
     color: '#101828',
     transition: 'transform 0.2s ease',
-    transform: state.selectProps.menuIsOpen
-      ? 'rotate(-180deg)'
-      : 'rotate(0deg)',
+    transform: state.selectProps.menuIsOpen ? 'scaleY(-1)' : 'scaleY(1)',
   }),
 };
