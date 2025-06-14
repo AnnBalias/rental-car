@@ -68,3 +68,16 @@
 .readMore:hover {
   background-color: var(--button-hover);
 }
+
+@media screen and (max-width: 1280px) {
+  .carItem {
+    width: calc((100% - 32px) / 2);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carItem {
+    width: 100%;
+    height: 400px;
+  }
+}

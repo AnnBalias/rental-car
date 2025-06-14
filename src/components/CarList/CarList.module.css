@@ -20,3 +20,17 @@
 .loadMore:hover {
   border-color: var(--button-hover);
 }
+
+@media screen and (max-width: 1280px) {
+  .carList {
+    width: 618px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carList {
+    width: 272px;
+    margin-bottom: 20px;
+  }
+}
