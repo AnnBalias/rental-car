@@ -80,3 +80,27 @@
 .send:hover {
   background-color: var(--button-hover);
 }
+
+@media screen and (max-width: 1280px) {
+  .formBox {
+    height: auto;
+  }
+
+  .inputBox {
+    width: 255px;
+  }
+
+  .formInput {
+    margin-bottom: 8px;
+  }
+
+  .formTextAr {
+    margin-bottom: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .formBox {
+    padding: 12px 10px;
+  }
+}

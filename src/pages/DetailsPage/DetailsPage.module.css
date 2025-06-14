@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   gap: 72px;
-  padding: 84px 120px 104px;
+  padding: 84px 120px 124px;
 }
 
 .formBox {
@@ -17,4 +17,33 @@
   height: 512px;
   object-fit: cover;
   object-position: center;
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    padding: 30px 75px 40px;
+    gap: 20px;
+  }
+
+  .formBox {
+    width: 320px;
+    gap: 34px;
+  }
+
+  .carImg {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 15px 24px 25px;
+    flex-direction: column-reverse;
+    gap: 34px;
+  }
+
+  .formBox {
+    width: 272px;
+    gap: 20px;
+  }
 }

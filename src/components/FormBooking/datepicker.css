@@ -92,3 +92,10 @@ div.react-datepicker__day:not([aria-disabled='true']):hover {
   background-color: var(--button-hover);
   color: var(--white);
 }
+
+@media screen and (max-width: 1280px) {
+  input#date {
+    width: 255px;
+    margin-bottom: 8px;
+  }
+}
