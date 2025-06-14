@@ -9,6 +9,7 @@ Rental Car is a web application for car rentals, where users can search and filt
 - **form for filtering** cars by brand, price and mileage
 - catalog where you can view a list of cars, **add them to your "favorites"** and **go to a page with a description** of the car
 - page with detailed information about the car and the **ability to submit a reservation request**
+- the application has a **adaptive design**
 
 ## Installation and usage instructions
 
