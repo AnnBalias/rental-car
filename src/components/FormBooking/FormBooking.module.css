@@ -20,6 +20,7 @@
 }
 
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,6 +82,15 @@
   background-color: var(--button-hover);
 }
 
+.success {
+  position: absolute;
+  bottom: -32px;
+  color: green;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 @media screen and (max-width: 1280px) {
   .formBox {
     height: auto;
@@ -96,6 +106,10 @@
 
   .formTextAr {
     margin-bottom: 14px;
+  }
+
+  .success {
+    bottom: -44px;
   }
 }
 

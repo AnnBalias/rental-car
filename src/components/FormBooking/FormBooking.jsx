@@ -13,6 +13,7 @@ export const FormBooking = () => {
     comment: '',
   });
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
 
   const validate = () => {
     const newErrors = {};
@@ -70,6 +71,12 @@ export const FormBooking = () => {
         data: new Date(),
         comment: '',
       });
+
+      setSuccessMessage('Booking successful! We will contact you soon.');
+
+      setTimeout(() => {
+        setSuccessMessage('');
+      }, 5000);
     }
   };
 
@@ -135,8 +142,8 @@ export const FormBooking = () => {
         <button type="submit" className={css.send}>
           Send
         </button>
+        {successMessage && <p className={css.success}>{successMessage}</p>}
       </form>
     </div>
   );
 };
-// 160
